@@ -21,58 +21,60 @@
   <meta content="#fafafa" name="theme-color">
 </head>
 
-<p>
-<div class="container"><h1>Schultag-Countdown</h1>
-</div>
-<div class="container" id="countdown">
-  <div id="countdown_value">
-    &infin;
-  </div>
-</div>
-<footer>
-  <p>Countdown der bis zum letzten Schultag zählt.</p>
+<body>
+  <header><h1>Schultag-Countdown</h1></header>
+  <main>
+      <div id="countdown_value">
+       &infin;
+      </div>
+  </main>
+  <footer>
+    <p>Countdown der bis zum letzten Schultag zählt.</p>
 
 
-  <p>Copyright (C) 2024 Maximilian Dorninger</p>
+    <p>Copyright (C) 2024 Maximilian Dorninger</p>
 
-  <p>This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License as published
-    by the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.</p>
+    <p>This program is free software: you can redistribute it and/or modify
+      it under the terms of the GNU Affero General Public License as published
+      by the Free Software Foundation, either version 3 of the License, or
+      (at your option) any later version.</p>
 
-  <p> program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-    GNU Affero General Public License for more details.</p>
+    <p>This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+      GNU Affero General Public License for more details.</p>
 
-  <p> should have received a copy of the GNU Affero General Public License
-    along with this program. If not, see <a href="https://www.gnu.org/licenses/#AGPL" target="_blank">https://www.gnu.org/licenses/</a>.
-  </p>
-</footer>
-<script>
+    <p>You should have received a copy of the GNU Affero General Public License
+      along with this program. If not, see <a href="https://www.gnu.org/licenses/#AGPL" target="_blank">https://www.gnu.org/licenses/</a>.
+    </p>
+    <p><a href="https://github.com/CookieDude24/school-day-countdown" target="_blank">
+      link to sourcecode
+    </a></p>
+  </footer>
+  <script>
 
-  setInterval(function countdown() {
-    const start = Date.now()
-    const end = Date.UTC(2025, 6, 31)
+    setInterval(function countdown() {
+      const start = Date.now()
+      const end = Date.UTC(2025, 6, 31)
 
 
-    distance = end - start
+      distance = end - start
 
-    if (distance <= 0) {
-      document.getElementById("countdown_value").innerHTML = "FERTIG OIDA";
-      return;
-    }
+      if (distance <= 0) {
+        document.getElementById("countdown_value").innerHTML = "FERTIG OIDA";
+        return;
+      }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("countdown_value").innerHTML =
-      `<div id="time">${days}d ${hours}h ${minutes}m ${seconds}s</div> bis zum Ende des Schuljahres`;
-    process
-  }, 1000)
-</script>
+      document.getElementById("countdown_value").innerHTML =
+        `<div id="time">${days}d ${hours}h ${minutes}m ${seconds}s</div> bis zum Ende des Schuljahres`;
+      process
+    }, 1000)
+  </script>
 </body>
 
 </html>

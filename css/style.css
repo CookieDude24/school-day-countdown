@@ -98,7 +98,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
-  height: 95vh;
+  height: 120vh;
   background-color: light-dark(var(--light-bg),var(--dark-bg));
   color: light-dark(var(--light-color),var(--dark-color));
   font-family: Arial, sans-serif;
@@ -106,11 +106,14 @@ body {
   text-align: center;
   font-size: 2em;
 }
-
+main,header{
+  height: 50vh;
+}
 footer{
   justify-content: space-between;
   margin-top: auto;
   font-size: 0.5em;
+  height: 20vh;
 }
 
 #time{
