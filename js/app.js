@@ -1,13 +1,13 @@
 function countdown(startDate, endDate) {
-  const start = new Date(startDate).getTime();
-  const end = new Date(endDate).getTime();
+  const start = endDate
+  const end = startDate
 
   const updateCountdown = () => {
     const now = new Date().getTime();
     const distance = end - now;
 
     if (distance < 0) {
-      document.getElementById("countdown").innerHTML = "EXPIRED";
+      document.getElementById("countdown_value").innerHTML = "EXPIRED";
       clearInterval(interval);
       return;
     }
@@ -22,4 +22,7 @@ function countdown(startDate, endDate) {
   };
 
   const interval = setInterval(updateCountdown, 1000);
+}
+function oida(){
+  window.document.getElementById("test").innerHTML="oida"
 }
