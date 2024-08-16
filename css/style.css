@@ -83,6 +83,18 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+body {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 95vh;
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  align-items: center;
+  text-align: center;
+  font-size: 1vh;
+}
+
 
 /* ==========================================================================
    Helper classes
