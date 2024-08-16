@@ -3,59 +3,76 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
   <title></title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
+  <link href="css/style.css" rel="stylesheet">
+  <meta content="" name="description">
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+  <meta content="" property="og:title">
+  <meta content="" property="og:type">
+  <meta content="" property="og:url">
+  <meta content="" property="og:image">
 
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+  <link href="/favicon.ico" rel="icon" sizes="any">
+  <link href="/icon.svg" rel="icon" type="image/svg+xml">
+  <link href="icon.png" rel="apple-touch-icon">
 
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+  <link href="site.webmanifest" rel="manifest">
+  <meta content="#fafafa" name="theme-color">
 </head>
 
-<body>
-  <div class="container"><h1>Schultag-Countdown</h1>
+<p>
+<div class="container"><h1>Schultag-Countdown</h1>
+</div>
+<div class="container" id="countdown">
+  <div id="countdown_value">
+    &infin;
   </div>
-  <div id="countdown" class="container">
-    <div id ="countdown_value">
-      &infin;
-    </div>
-    <div> bis zum Ende des Schuljahres</div>
-  </div>
-  <footer>
-    Copyright (C) 2024 Maximilian Dorninger
-  </footer>
-  <script>
-
-    setInterval(function countdown() {
-      const start = Date.now()
-      const end = Date.UTC(2025,6,31)
+</div>
+<footer>
+  <p>Countdown der bis zum letzten Schultag zählt.</p>
 
 
-      distance = end-start
+  <p>Copyright (C) 2024 Maximilian Dorninger</p>
 
-      if (distance < 0) {
-        document.getElementById("countdown_value").innerHTML = "FERTIG OIDA";
-        return;
-      }
+  <p>This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.</p>
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  <p> program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU Affero General Public License for more details.</p>
 
-      document.getElementById("countdown_value").innerHTML =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    },1000)
-  </script>
+  <p> should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <a href="https://www.gnu.org/licenses/#AGPL" target="_blank">https://www.gnu.org/licenses/</a>.
+  </p>
+</footer>
+<script>
+
+  setInterval(function countdown() {
+    const start = Date.now()
+    const end = Date.UTC(2025, 6, 31)
+
+
+    distance = end - start
+
+    if (distance <= 0) {
+      document.getElementById("countdown_value").innerHTML = "FERTIG OIDA";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown_value").innerHTML =
+      `<div id="time">${days}d ${hours}h ${minutes}m ${seconds}s</div> bis zum Ende des Schuljahres`;
+    process
+  }, 1000)
+</script>
 </body>
 
 </html>

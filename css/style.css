@@ -83,17 +83,43 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+:root{
+  color-scheme: light dark;
+
+  --light-bg: ghostwhite;
+  --light-color: darkslategrey;
+  --light-highlight: tomato;
+
+  --dark-bg: darkslategrey;
+  --dark-color: ghostwhite;
+  --dark-highlight: coral;
+}
 body {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
   height: 95vh;
-  background-color: #f0f0f0;
+  background-color: light-dark(var(--light-bg),var(--dark-bg));
+  color: light-dark(var(--light-color),var(--dark-color));
   font-family: Arial, sans-serif;
   align-items: center;
   text-align: center;
-  font-size: 1vh;
+  font-size: 2em;
 }
+
+footer{
+  justify-content: space-between;
+  margin-top: auto;
+  font-size: 0.5em;
+}
+
+#time{
+  text-decoration: underline wavy;
+  color: light-dark(var(--light-highlight),var(--dark-highlight));
+  display: block;
+
+}
+
 
 
 /* ==========================================================================
