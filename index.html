@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="DE">
+<html lang="DE">
 
 <head>
   <meta charset="utf-8">
@@ -13,19 +13,19 @@
   <meta content="" property="og:url">
   <meta content="" property="og:image">
 
-  <link href="/favicon.ico" rel="icon" sizes="any">
-  <link href="/icon.svg" rel="icon" type="image/svg+xml">
-  <link href="icon.png" rel="apple-touch-icon">
+  <link href="./favicon.ico" rel="icon" sizes="any">
+  <link href="./icon.svg" rel="icon" type="image/svg+xml">
+  <link href="./icon.png" rel="apple-touch-icon">
 
-  <link href="site.webmanifest" rel="manifest">
-  <meta content="#fafafa" name="theme-color">
+  <link href="./manifest.json" rel="manifest">
+  <meta content="#2f4f4f" name="theme-color">
 </head>
 
 <body>
   <header><h1>Schultag-Countdown</h1></header>
   <main>
       <div id="countdown_value">
-       &infin;
+       &infin;h bis zum Ende des Schuljahres
       </div>
   </main>
   <footer>
@@ -55,7 +55,7 @@
 
     setInterval(function countdown() {
       const start = Date.now()
-      const end = Date.UTC(2025, 6, 31)
+      const end = Date.UTC(2025, 6, 27 ,12)
 
 
       distance = end - start
