@@ -122,6 +122,13 @@ footer{
   display: block;
 
 }
+nav{
+  display: block;
+  font-size: medium;
+  background-color: light-dark(var(--light-highlight),var(--dark-highlight));
+  color: light-dark(var(--light-color),var(--dark-color));
+  text-decoration-color: light-dark(var(--light-color),var(--dark-color));
+}
 
 
 
