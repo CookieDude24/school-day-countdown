@@ -105,6 +105,7 @@ body {
   align-items: center;
   text-align: center;
   font-size: 2em;
+  margin: 0;
 }
 main,header{
   height: 50vh;
@@ -115,6 +116,9 @@ footer{
   font-size: 0.5em;
   height: 20vh;
 }
+h1{
+  font-size: 5vw;
+}
 
 #time{
   text-decoration: underline wavy;
@@ -124,10 +128,20 @@ footer{
 }
 nav{
   display: block;
-  font-size: medium;
+  width: 100vw;
+  height: 2.5rem;
   background-color: light-dark(var(--light-highlight),var(--dark-highlight));
-  color: light-dark(var(--light-color),var(--dark-color));
-  text-decoration-color: light-dark(var(--light-color),var(--dark-color));
+}
+
+nav a{
+  display: block;
+  color: darkslategrey;
+  text-decoration-style: wavy;
+  font-size: medium;
+  padding-top: 0.5rem
+}
+nav a:hover{
+
 }
 
 
