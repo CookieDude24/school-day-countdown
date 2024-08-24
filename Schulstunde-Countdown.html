@@ -58,12 +58,58 @@
     var end = new Date();
     end.setHours(8,15,0)
 
+    distance = end - start
+    if(distance<=0)
+      end.setHours(8,55,0)
 
+    distance = end - start
+    if(distance<=0)
+      end.setHours(9,50,0)
+
+    distance = end - start
+    if(distance<=0)
+      end.setHours(10,30,0)
+
+    distance = end - start
+    if(distance<=0)
+      end.setHours(11,15,0)
+
+    distance = end - start
+    if(distance<=0)
+      end.setHours(11,55,0)
+
+    distance = end - start
+    if(distance<=0)
+      end.setHours(12,45,0)
+
+    distance = end - start
+    if(distance<=0)
+      end.setHours(13,35,0)
+
+    distance = end - start
+    if(distance<=0)
+      end.setHours(14,25,0)
+
+    distance = end - start
+    if(distance<=0)
+      end.setHours(15,15,0)
+
+    distance = end - start
+    if(distance<=0)
+      end.setHours(16,5,0)
+
+    distance = end - start
+    if(distance<=0)
+      end.setHours(19,58,0)
+
+    distance = end - start
+    if(distance<=0)
+      end.setHours(20,0,0)
 
     distance = end - start
 
     if (distance <= 0) {
-      document.getElementById("countdown_value").innerHTML = "FERTIG OIDA";
+      document.getElementById("countdown_value").innerHTML = distance;
       return;
     }
 
