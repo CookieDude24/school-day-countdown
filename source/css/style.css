@@ -83,28 +83,39 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-:root{
+
+
+:root {
   color-scheme: light dark;
 
-  --light-bg: linear-gradient(45deg,#59C173,#a17fe0,#5D26C1);
-  --light-color: white;
-  --light-highlight: white;
-  --light-highlight-secondary: #494949;
-  --light-highlight-hover: #E09748;
+  --bg: linear-gradient(45deg, #FC466B, #3F5EFB);
 
-  --dark-bg: linear-gradient(45deg,#03001e,#7303c0,#ec38bc,#fdeff9);
+  --footer-color: white;
+  --footer-bg: #494949;
+
+  --light-color: white;
+  --light-nav-bg: white;
+  --light-nav-color: #494949;
+
   --dark-color: ghostwhite;
-  --dark-highlight: #8faade;
-  --dark-highlight-secondary: #5A87E0;
-  --dark-highlight-hover: #E09748;
+  --dark-nav-bg: ghostwhite;
+  --dark-nav-color: #494949;
 }
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --bg: linear-gradient(45deg, #C33764, #1D2671);
+
+  }
+}
+
 body {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
   height: 120vh;
-  background: linear-gradient(45deg,#ff9966,#ff5e62);
-  color: light-dark(var(--light-color),var(--dark-color));
+  background: var(--bg);
+  color: light-dark(var(--light-color), var(--dark-color));
   font-family: Arial, sans-serif;
   align-items: center;
   text-align: center;
@@ -112,28 +123,43 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
-main,header{
+
+main, header {
   height: 50vh;
 }
 
-footer{
+main{
+  margin-top: 10vh;
+}
+footer {
   justify-content: space-between;
-  margin-top: auto;
+  margin-top: 50vh;
   font-size: 0.5em;
   height: 20vh;
+  display: block;
+  width: 100vw;
+  background-color: var(--footer-bg);
 }
-h1{
+footer p{
+  background-color: var(--footer-bg);
+  margin: 0;
+  padding: 5px;
+
+}
+
+h1 {
   font-size: xxx-large;
 }
 
-#time{
+#time {
   text-decoration: underline wavy;
   text-decoration-thickness: 0.15rem;
-  color: light-dark(var(--light-highlight),var(--dark-highlight));
+  color: light-dark(var(--light-color), var(--dark-color));
   display: block;
-
+  font-weight: bolder;
 }
-nav{
+
+nav {
   display: block;
   width: 100vw;
   height: 4rem;
@@ -141,51 +167,63 @@ nav{
   margin-top: 5rem;
   padding-bottom: 0;
   position: relative;
-  background-color: light-dark(var(--light-color),var(--dark-color));
+  background-color: light-dark(var(--light-nav-bg), var(--dark-nav-bg));
+
+
 }
 
-nav a{
+nav a {
   display: inline-block;
-  color: light-dark(var(--light-highlight-secondary),var(--dark-highlight-secondary));
+  color: light-dark(var(--light-nav-color), var(--dark-nav-color));
   font-size: 1.5rem;
   padding-top: 0.5rem;
-  text-decoration: none;
   overflow: hidden;
-  width: fit-content;
+  width: 100vw;
   margin: auto;
-
-
-  &:after {
-    position: absolute;
-    top: 0px;
-    width: fit-content;
-    left: 100px;
-    right: 0;
-    overflow: hidden;
-    bottom: 0;
-    white-space: nowrap;
-    content: attr(data-text);
-    color: transparent;
-    line-height: 1.8;
-    text-decoration: underline;
-    text-decoration-style: wavy;
-    text-decoration-color: light-dark(var(--light-highlight-hover),var(--dark-highlight-hover));
-  }
-
-  &:hover:after {
-    animation: wavy-slide 5s linear infinite;
-    overflow: hidden;
-  }
+  text-decoration-style: wavy;
+  text-decoration-thickness: 0.15rem;
 }
 
-
-@keyframes wavy-slide {
-  to {
-    margin-left: -51%;
-  }
+nav a:hover {
+  animation: shake 0.8s infinite;
 }
 
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
 
+  }
+}
 
 /* ==========================================================================
    Helper classes
@@ -275,9 +313,9 @@ nav a{
 }
 
 @media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
 
