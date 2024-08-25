@@ -110,6 +110,7 @@ body {
 main,header{
   height: 50vh;
 }
+
 footer{
   justify-content: space-between;
   margin-top: auto;
@@ -117,7 +118,7 @@ footer{
   height: 20vh;
 }
 h1{
-  font-size: 5vw;
+  font-size: xxx-large;
 }
 
 #time{
@@ -130,6 +131,10 @@ nav{
   display: block;
   width: 100vw;
   height: 2.5rem;
+  top: -5rem;
+  margin-top: 5rem;
+  padding-bottom: 0;
+  position: relative;
   background-color: light-dark(var(--light-highlight),var(--dark-highlight));
 }
 
@@ -163,8 +168,8 @@ nav a:hover{
  * Hide only visually, but have it available for screen readers:
  * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
+ * 1. For long source, line feeds are not interpreted as spaces and small width
+ *    causes source to wrap 1 word per line:
  *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
  */
 
@@ -226,7 +231,7 @@ nav a:hover{
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
-   Modify as content requires.
+   Modify as source requires.
    ========================================================================== */
 
 @media only screen and (min-width: 35em) {

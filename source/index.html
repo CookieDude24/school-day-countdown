@@ -13,16 +13,16 @@
   <meta content="" property="og:url">
   <meta content="" property="og:image">
 
-  <link href="./favicon.ico" rel="icon" sizes="any">
-  <link href="./icon.svg" rel="icon" type="image/svg+xml">
-  <link href="./icon.png" rel="apple-touch-icon">
+  <link href="media/favicon.ico" rel="icon" sizes="any">
+  <link href="media/icon.svg" rel="icon" type="image/svg+xml">
+  <link href="media/icon.png" rel="apple-touch-icon">
 
-  <link href="./manifest.json" rel="manifest">
+  <link href="manifest.json" rel="manifest">
   <meta content="#2f4f4f" name="theme-color">
 </head>
 
 <body>
-  <header><nav><a href="Schulstunde-Countdown.html">Schulstunden Countdown</a></nav><h1>Sommerferien Countdown</h1></header>
+  <header><nav><a href="html/Schulstunde-Countdown.html">Schulstunden Countdown</a></nav><h1>Sommerferien Countdown</h1></header>
   <main>
       <div id="countdown_value">
        &infin;h bis zum Ende des Schuljahres
@@ -31,6 +31,7 @@
   <footer>
     <p>Countdown der bis zum letzten Schultag zählt.</p>
 
+    <p>Dieser Countdown zählt bis <span id="date"></span></p>
 
     <p>Copyright (C) 2024 Maximilian Dorninger</p>
 
@@ -52,10 +53,14 @@
     </a></p>
   </footer>
   <script>
+    const end = new Date;
+    end.setFullYear(2025,6,27)
+    end.setHours(8,55,0,0)
+    document.getElementById("date").innerHTML = end
 
     setInterval(function countdown() {
       const start = Date.now()
-      const end = Date.UTC(2025, 6, 27 ,12)
+
 
 
       distance = end - start

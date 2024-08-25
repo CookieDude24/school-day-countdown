@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <title>Schulstunden Countdown</title>
-  <link href="css/style.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
   <meta content="" name="description">
 
   <meta content="" property="og:title">
@@ -13,18 +13,18 @@
   <meta content="" property="og:url">
   <meta content="" property="og:image">
 
-  <link href="./favicon.ico" rel="icon" sizes="any">
-  <link href="./icon.svg" rel="icon" type="image/svg+xml">
-  <link href="./icon.png" rel="apple-touch-icon">
+  <link href="../media/favicon.ico" rel="icon" sizes="any">
+  <link href="../media/icon.svg" rel="icon" type="image/svg+xml">
+  <link href="../media/icon.png" rel="apple-touch-icon">
 
-  <link href="./manifest.json" rel="manifest">
+  <link href="../manifest.json" rel="manifest">
   <meta content="#2f4f4f" name="theme-color">
 </head>
 
 <body>
 <header>
-  <nav><a href="index.html">Sommerferien Countdown</a></nav>
-  <h1>Schulstunde-Countdown</h1></header>
+  <nav><a href="../index.html">Sommerferien Countdown</a></nav>
+  <h1>Schulstunden Countdown</h1></header>
 <main>
   <div id="countdown_value">
     <div id="time">&infin;</div>
@@ -33,6 +33,7 @@
 </main>
 <footer>
   <p>Countdown der bis zum Ende jeder Schulstunde zählt.</p>
+  <p>Dieser Countdown zählt bis <span id="date"></span></p>
 
 
   <p>Copyright (C) 2024 Maximilian Dorninger</p>
@@ -61,80 +62,84 @@
   function getNextLessonEndTime() {
     const start = Date.now()
     let end = new Date();
+    let distance;
 
     end.setHours(8, 15, 0)
 
     distance = end - start
     if (distance <= 0) {
       end.setHours(8, 55, 0)
-      return end;    }
+    }
 
     distance = end - start
     if (distance <= 0) {
       end.setHours(9, 50, 0)
-      return end;    }
+    }
 
     distance = end - start
     if (distance <= 0) {
       end.setHours(10, 30, 0)
-      return end;    }
+    }
 
     distance = end - start
     if (distance <= 0) {
       end.setHours(11, 15, 0)
-      return end;    }
+    }
 
     distance = end - start
     if (distance <= 0) {
       end.setHours(11, 55, 0)
-      return end;    }
+    }
 
     distance = end - start
     if (distance <= 0) {
       end.setHours(12, 45, 0)
-      return end;    }
+    }
 
     distance = end - start
     if (distance <= 0) {
       end.setHours(13, 35, 0)
-      return end;    }
+    }
 
     distance = end - start
     if (distance <= 0) {
       end.setHours(14, 25, 0)
-      return end;    }
+    }
 
     distance = end - start
     if (distance <= 0) {
       end.setHours(15, 15, 0)
-      return end;    }
+    }
 
     distance = end - start
     if (distance <= 0) {
       end.setHours(16, 5, 0)
-      return end;    }
-
+    }
 
     return end;
   }
-  function countdown(end) {
+
+  function countdown() {
     const start = Date.now()
 
-    distance = end - start
+    let distance = endTime - start;
 
+    if(distance<=0){
+      document.getElementById("countdown_value").innerHTML = `<div id="time">STUNDE AUS!</div>`
+      return;
+    }
 
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
     const milliseconds = performance.now() % 1000;
 
-
     document.getElementById("countdown_value").innerHTML =
       `<div id="time"><span>${minutes}m </span><span>${seconds}s </span><span>${milliseconds}ms </span></div>bis zum Ende der Schulstunde`;
     process
   }
-
-   endTime = getNextLessonEndTime();
-  setInterval(countdown,endTime, 1)
+  endTime = getNextLessonEndTime();
+  document.getElementById("date").innerHTML = endTime;
+  setInterval(countdown, 1)
 </script>
 </body>
 
