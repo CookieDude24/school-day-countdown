@@ -86,20 +86,24 @@ textarea {
 :root{
   color-scheme: light dark;
 
-  --light-bg: ghostwhite;
-  --light-color: darkslategrey;
-  --light-highlight: tomato;
+  --light-bg: linear-gradient(45deg,#59C173,#a17fe0,#5D26C1);
+  --light-color: white;
+  --light-highlight: white;
+  --light-highlight-secondary: #494949;
+  --light-highlight-hover: #E09748;
 
-  --dark-bg: darkslategrey;
+  --dark-bg: linear-gradient(45deg,#03001e,#7303c0,#ec38bc,#fdeff9);
   --dark-color: ghostwhite;
-  --dark-highlight: coral;
+  --dark-highlight: #8faade;
+  --dark-highlight-secondary: #5A87E0;
+  --dark-highlight-hover: #E09748;
 }
 body {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
   height: 120vh;
-  background-color: light-dark(var(--light-bg),var(--dark-bg));
+  background: linear-gradient(45deg,#ff9966,#ff5e62);
   color: light-dark(var(--light-color),var(--dark-color));
   font-family: Arial, sans-serif;
   align-items: center;
@@ -124,6 +128,7 @@ h1{
 
 #time{
   text-decoration: underline wavy;
+  text-decoration-thickness: 0.15rem;
   color: light-dark(var(--light-highlight),var(--dark-highlight));
   display: block;
 
@@ -131,25 +136,54 @@ h1{
 nav{
   display: block;
   width: 100vw;
-  height: 2.5rem;
+  height: 4rem;
   top: -5rem;
   margin-top: 5rem;
   padding-bottom: 0;
   position: relative;
-  background-color: light-dark(var(--light-highlight),var(--dark-highlight));
+  background-color: light-dark(var(--light-color),var(--dark-color));
 }
 
 nav a{
-  display: block;
-  color: darkslategrey;
-  text-decoration-style: wavy;
-  font-size: medium;
-  padding-top: 0.5rem
-}
-nav a:hover{
+  display: inline-block;
+  color: light-dark(var(--light-highlight-secondary),var(--dark-highlight-secondary));
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
+  text-decoration: none;
+  overflow: hidden;
+  width: fit-content;
+  margin: auto;
 
+
+  &:after {
+    position: absolute;
+    top: 0px;
+    width: fit-content;
+    left: 100px;
+    right: 0;
+    overflow: hidden;
+    bottom: 0;
+    white-space: nowrap;
+    content: attr(data-text);
+    color: transparent;
+    line-height: 1.8;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: light-dark(var(--light-highlight-hover),var(--dark-highlight-hover));
+  }
+
+  &:hover:after {
+    animation: wavy-slide 5s linear infinite;
+    overflow: hidden;
+  }
 }
 
+
+@keyframes wavy-slide {
+  to {
+    margin-left: -51%;
+  }
+}
 
 
 
