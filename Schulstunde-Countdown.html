@@ -22,10 +22,13 @@
 </head>
 
 <body>
-<header><nav><a href="index.html">Sommerferien Countdown</a></nav><h1>Schulstunde-Countdown</h1></header>
+<header>
+  <nav><a href="index.html">Sommerferien Countdown</a></nav>
+  <h1>Schulstunde-Countdown</h1></header>
 <main>
   <div id="countdown_value">
-    <div id="time">&infin;</div> bis zum Ende der Schulstunde
+    <div id="time">&infin;</div>
+    bis zum Ende der Schulstunde
   </div>
 </main>
 <footer>
@@ -52,70 +55,86 @@
   </a></p>
 </footer>
 <script>
+  let schoolDayOver = false;
+  let endTime;
 
-  setInterval(function countdown() {
+  function getNextLessonEndTime() {
     const start = Date.now()
-    var end = new Date();
-    end.setHours(8,15,0)
+    let end = new Date();
+
+    end.setHours(8, 15, 0)
 
     distance = end - start
-    if(distance<=0)
-      end.setHours(8,55,0)
-
-    distance = end - start
-    if(distance<=0)
-      end.setHours(9,50,0)
-
-    distance = end - start
-    if(distance<=0)
-      end.setHours(10,30,0)
-
-    distance = end - start
-    if(distance<=0)
-      end.setHours(11,15,0)
-
-    distance = end - start
-    if(distance<=0)
-      end.setHours(11,55,0)
-
-    distance = end - start
-    if(distance<=0)
-      end.setHours(12,45,0)
-
-    distance = end - start
-    if(distance<=0)
-      end.setHours(13,35,0)
-
-    distance = end - start
-    if(distance<=0)
-      end.setHours(14,25,0)
-
-    distance = end - start
-    if(distance<=0)
-      end.setHours(15,15,0)
-
-    distance = end - start
-    if(distance<=0)
-      end.setHours(16,5,0)
-
-    distance = end - start
-
     if (distance <= 0) {
-      document.getElementById("countdown_value").innerHTML = distance;
-      return;
-    }
+      end.setHours(8, 55, 0)
+      return end;    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(9, 50, 0)
+      return end;    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(10, 30, 0)
+      return end;    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(11, 15, 0)
+      return end;    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(11, 55, 0)
+      return end;    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(12, 45, 0)
+      return end;    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(13, 35, 0)
+      return end;    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(14, 25, 0)
+      return end;    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(15, 15, 0)
+      return end;    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(16, 5, 0)
+      return end;    }
+
+
+    return end;
+  }
+  function countdown(end) {
+    const start = Date.now()
+
+    distance = end - start
+
 
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
     const milliseconds = performance.now() % 1000;
 
 
-
-
     document.getElementById("countdown_value").innerHTML =
-      `<div id="time">${minutes}m ${seconds}s ${milliseconds}ms</div> bis zum Ende der Schulstunde`;
+      `<div id="time"><span>${minutes}m </span><span>${seconds}s </span><span>${milliseconds}ms </span></div>bis zum Ende der Schulstunde`;
     process
-  }, 1)
+  }
+
+   endTime = getNextLessonEndTime();
+  setInterval(countdown,endTime, 1)
 </script>
 </body>
 
