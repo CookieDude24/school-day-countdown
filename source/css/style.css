@@ -106,6 +106,7 @@ body {
   text-align: center;
   font-size: 2em;
   margin: 0;
+  overflow-x: hidden;
 }
 main,header{
   height: 50vh;
@@ -148,6 +149,7 @@ nav a{
 nav a:hover{
 
 }
+
 
 
 

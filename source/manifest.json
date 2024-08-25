@@ -1,15 +1,15 @@
 {
   "name": "Schultag Countdown",
   "icons": [{
-    "src": "./icon.png",
+    "src": "media/icon.png",
     "type": "image/png",
     "sizes": "192x192"
   },{
-    "src": "./icon.svg",
+    "src": "media/icon.svg",
     "type": "image/svg",
     "sizes": "any"
   }],
-  "start_url": "/?utm_source=homescreen",
+  "start_url": "/",
   "background_color": "#f8f8ff",
   "theme_color": "#2f4f4f",
   "display": "fullscreen"

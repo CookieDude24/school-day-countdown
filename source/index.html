@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="DE">
+<html lang="de">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>Sommerferien Countdown</title>
+  <title>Schulstunden Countdown</title>
   <link href="css/style.css" rel="stylesheet">
-  <meta content="" name="description">
+  <meta content="Countdown bis zum Ende der Schulstunde" name="description">
 
-  <meta content="" property="og:title">
-  <meta content="" property="og:type">
-  <meta content="" property="og:url">
-  <meta content="" property="og:image">
+  <meta content="Schulstunden Countdown" property="og:title">
+  <meta content="Website" property="og:type">
+  <meta content="https://countdown.maxid.me/" property="og:url">
+  <meta content="media/icon.svg" property="og:image">
 
   <link href="media/favicon.ico" rel="icon" sizes="any">
   <link href="media/icon.svg" rel="icon" type="image/svg+xml">
@@ -22,64 +22,124 @@
 </head>
 
 <body>
-  <header><nav><a href="html/Schulstunde-Countdown.html">Schulstunden Countdown</a></nav><h1>Sommerferien Countdown</h1></header>
-  <main>
-      <div id="countdown_value">
-       &infin;h bis zum Ende des Schuljahres
-      </div>
-  </main>
-  <footer>
-    <p>Countdown der bis zum letzten Schultag zählt.</p>
-
-    <p>Dieser Countdown zählt bis <span id="date"></span></p>
-
-    <p>Copyright (C) 2024 Maximilian Dorninger</p>
-
-    <p>This program is free software: you can redistribute it and/or modify
-      it under the terms of the GNU Affero General Public License as published
-      by the Free Software Foundation, either version 3 of the License, or
-      (at your option) any later version.</p>
-
-    <p>This program is distributed in the hope that it will be useful,
-      but WITHOUT ANY WARRANTY; without even the implied warranty of
-      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-      GNU Affero General Public License for more details.</p>
-
-    <p>You should have received a copy of the GNU Affero General Public License
-      along with this program. If not, see <a href="https://www.gnu.org/licenses/#AGPL" target="_blank">https://www.gnu.org/licenses/</a>.
-    </p>
-    <p><a href="https://github.com/CookieDude24/school-day-countdown" target="_blank">
-      link to sourcecode
-    </a></p>
-  </footer>
-  <script>
-    const end = new Date;
-    end.setFullYear(2025,6,27)
-    end.setHours(8,55,0,0)
-    document.getElementById("date").innerHTML = end
-
-    setInterval(function countdown() {
-      const start = Date.now()
+<header>
+  <nav><a href="html/sommerferien-countdown.html">Sommerferien Countdown</a></nav>
+  <h1>Schulstunden Countdown</h1></header>
+<main>
+  <div id="countdown_value">
+    <div id="time">&infin;</div>
+    bis zum Ende der Schulstunde
+  </div>
+</main>
+<footer>
+  <p>Countdown der bis zum Ende jeder Schulstunde zählt.</p>
+  <p>Dieser Countdown zählt bis <span id="date"></span></p>
 
 
+  <p>Copyright (C) 2024 Maximilian Dorninger</p>
 
-      distance = end - start
+  <p>This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.</p>
 
-      if (distance <= 0) {
-        document.getElementById("countdown_value").innerHTML = "FERTIG OIDA";
-        return;
-      }
+  <p>This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU Affero General Public License for more details.</p>
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  <p>You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <a href="https://www.gnu.org/licenses/#AGPL" target="_blank">https://www.gnu.org/licenses/</a>.
+  </p>
+  <p><a href="https://github.com/CookieDude24/school-day-countdown" target="_blank">
+    link to sourcecode
+  </a></p>
+</footer>
+<script>
+  let endTime;
 
-      document.getElementById("countdown_value").innerHTML =
-        `<div id="time">${days}d ${hours}h ${minutes}m ${seconds}s</div> bis zum Ende des Schuljahres`;
-      process
-    }, 1000)
-  </script>
+  function getNextLessonEndTime() {
+    const start = Date.now()
+    let end = new Date();
+    let distance;
+
+    end.setHours(8, 15, 0)
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(8, 55, 0)
+    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(9, 50, 0)
+    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(10, 30, 0)
+    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(11, 15, 0)
+    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(11, 55, 0)
+    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(12, 45, 0)
+    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(13, 35, 0)
+    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(14, 25, 0)
+    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(15, 15, 0)
+    }
+
+    distance = end - start
+    if (distance <= 0) {
+      end.setHours(16, 5, 0)
+    }
+
+    return end;
+  }
+
+  function countdown() {
+    const start = Date.now()
+
+    let distance = endTime - start;
+
+    if(distance<=0){
+      document.getElementById("countdown_value").innerHTML = `<div id="time">STUNDE AUS!</div>`
+      return;
+    }
+
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const milliseconds = performance.now() % 1000;
+
+    document.getElementById("countdown_value").innerHTML =
+      `<div id="time"><span>${minutes}m </span><span>${seconds}s </span><span>${milliseconds}ms </span></div>bis zum Ende der Schulstunde`;
+    process
+  }
+  endTime = getNextLessonEndTime();
+  document.getElementById("date").innerHTML = endTime;
+  setInterval(countdown, 1)
+</script>
 </body>
 
 </html>

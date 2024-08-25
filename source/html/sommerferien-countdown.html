@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Sommerferien Countdown</title>
+  <link href="../css/style.css" rel="stylesheet">
+  <meta content="Countdown zu den Sommerferien" name="description">
+
+  <meta content="Sommerferien Countdown" property="og:title">
+  <meta content="Website" property="og:type">
+  <meta content="https://countdown.maxid.me/sommerferien-countdown" property="og:url">
+  <meta content="../media/icon.svg" property="og:image">
+
+  <link href="../media/favicon.ico" rel="icon" sizes="any">
+  <link href="../media/icon.svg" rel="icon" type="image/svg+xml">
+  <link href="../media/icon.png" rel="apple-touch-icon">
+
+  <link href="../manifest.json" rel="manifest">
+  <meta content="#2f4f4f" name="theme-color">
+</head>
+
+<body>
+  <header><nav><a href="../index.html">Schulstunden Countdown</a></nav><h1>Sommerferien Countdown</h1></header>
+  <main>
+      <div id="countdown_value">
+       &infin;h bis zum Ende des Schuljahres
+      </div>
+  </main>
+  <footer>
+    <p>Countdown der bis zum letzten Schultag zählt.</p>
+
+    <p>Dieser Countdown zählt bis <span id="date"></span></p>
+
+    <p>Copyright (C) 2024 Maximilian Dorninger</p>
+
+    <p>This program is free software: you can redistribute it and/or modify
+      it under the terms of the GNU Affero General Public License as published
+      by the Free Software Foundation, either version 3 of the License, or
+      (at your option) any later version.</p>
+
+    <p>This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+      GNU Affero General Public License for more details.</p>
+
+    <p>You should have received a copy of the GNU Affero General Public License
+      along with this program. If not, see <a href="https://www.gnu.org/licenses/#AGPL" target="_blank">https://www.gnu.org/licenses/</a>.
+    </p>
+    <p><a href="https://github.com/CookieDude24/school-day-countdown" target="_blank">
+      link to sourcecode
+    </a></p>
+  </footer>
+  <script>
+    const end = new Date;
+    end.setFullYear(2025,6,27)
+    end.setHours(8,55,0,0)
+    document.getElementById("date").innerHTML = end
+
+    setInterval(function countdown() {
+      const start = Date.now()
+
+
+
+      distance = end - start
+
+      if (distance <= 0) {
+        document.getElementById("countdown_value").innerHTML = "FERTIG OIDA";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown_value").innerHTML =
+        `<div id="time">${days}d ${hours}h ${minutes}m ${seconds}s</div> bis zum Ende des Schuljahres`;
+      process
+    }, 1000)
+  </script>
+</body>
+
+</html>
