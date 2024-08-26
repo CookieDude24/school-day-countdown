@@ -163,8 +163,6 @@ nav {
   display: block;
   width: 100vw;
   height: 4rem;
-  top: -5rem;
-  margin-top: 5rem;
   padding-bottom: 0;
   position: relative;
   background-color: light-dark(var(--light-nav-bg), var(--dark-nav-bg));
@@ -176,16 +174,19 @@ nav a {
   display: inline-block;
   color: light-dark(var(--light-nav-color), var(--dark-nav-color));
   font-size: 1.5rem;
-  padding-top: 0.5rem;
   overflow: hidden;
+  height: 3rem;
   width: 100vw;
   margin: auto;
+  padding-top: 1rem;
+  vertical-align: middle;
   text-decoration-style: wavy;
   text-decoration-thickness: 0.15rem;
 }
 
 nav a:hover {
   animation: shake 0.8s infinite;
+
 }
 
 @keyframes shake {
