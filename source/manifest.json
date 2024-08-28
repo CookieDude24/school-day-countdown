@@ -10,7 +10,7 @@
     "sizes": "any"
   }],
   "start_url": "/",
-  "background_color": "#f8f8ff",
-  "theme_color": "#2f4f4f",
+  "background_color": "#000000",
+  "theme_color": "#ffffff",
   "display": "fullscreen"
 }
