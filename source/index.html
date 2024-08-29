@@ -165,7 +165,7 @@
 
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    const milliseconds = performance.now() % 1000;
+    const milliseconds = 1000-(new Date().getMilliseconds());
 
     document.getElementById("countdown_value").innerHTML =
       `<div id="time"><span>${minutes}m </span><span>${seconds}s </span><span>${milliseconds}ms </span></div>bis zum Ende der Schulstunde`;
